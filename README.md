@@ -2,19 +2,14 @@
 用于解析IPDB格式离线数据库
 
 # 代码示例
-## 地级市精度库
 <pre>
         try {
-            // City类可用于IPDB格式的IPv4免费库，IPv4与IPv6的每周高级版、每日标准版、每日高级版、每日专业版、每日旗舰版
-            City db = new City("/path/to/test.ipdb");
-            
-            // db.find(address, language) 返回索引数组
-            System.out.println(Arrays.toString(db.find("1.1.1.1", "CN")));
-
-            // db.findInfo(address, language) 返回 CityInfo 对象
-            CityInfo info = db.findInfo("118.28.1.1", "CN");
-            System.out.println(info);
-
+            BaseStation db = new BaseStation("res/ipv6.ipdb");
+            System.out.println(db.buildTime());
+            System.out.println(db.languages());
+            System.out.println(db.fields());
+            System.out.println(db.isIPv6());
+            System.out.println(db.findInfo("240e:398:1:90a0:585e:a0f6:97d3:bd5","CN"));
         } catch (Exception e) {
             e.printStackTrace();
         }
